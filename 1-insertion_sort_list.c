@@ -10,7 +10,10 @@ void insertion_sort_list(listint_t **list)
 	int len = dlistint_len(*list);
 
 	if (len < 2)
+	{
+		print_list(*list);
 		return;
+	}
 	temp_n = *list;
 	if (len == 2)
 	{
