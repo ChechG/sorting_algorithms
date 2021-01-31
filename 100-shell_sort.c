@@ -17,7 +17,6 @@ void shell_sort(int *array, size_t size)
 		n = n * 3 + 1;
 	while (n > 0)
 	{
-		printf("n: %li\n", n);
 		for (i = 0; i < (size - n); i++)
 		{
 
@@ -31,7 +30,6 @@ void shell_sort(int *array, size_t size)
 				}
 			}
 		}
-		print_array(array, size);
 		n = (n - 1) / 3;
 	}
 }
