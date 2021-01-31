@@ -8,19 +8,20 @@
 
 void shell_sort(int *array, size_t size)
 {
-	size_t n = 0, i;
-	int temp, j;
+	size_t n = 0, i, j;
+	int temp;
 
 	if (size < 2)
 		return;
-	while (n <= size)
+	while (n <= (size - 1) / 9)
 		n = n * 3 + 1;
-	while (n > 1)
+	while (n > 0)
 	{
-		n = (n - 1) / 3;
-		for (i = 0; i < size - n; i++)
+		printf("n: %li\n", n);
+		for (i = 0; i < (size - n); i++)
 		{
-			for (j = i + n; j > 0; j = j - n)
+
+			for (j = i + n; j > 0 && j >= n; j = j - n)
 			{
 				if (array[j] < array[j - n])
 				{
@@ -31,5 +32,6 @@ void shell_sort(int *array, size_t size)
 			}
 		}
 		print_array(array, size);
+		n = (n - 1) / 3;
 	}
 }
