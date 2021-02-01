@@ -104,7 +104,7 @@ size_t dlistint_len(const listint_t *list)
 {
 	int n = 0;
 
-	if (list == NULL)
+	if (list->next == NULL)
 	{
 		return (0);
 	}
@@ -113,6 +113,5 @@ size_t dlistint_len(const listint_t *list)
 		n++;
 		list = list->next;
 	}
-	n++;
 	return (n);
 }
