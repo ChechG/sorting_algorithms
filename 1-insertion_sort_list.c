@@ -9,15 +9,13 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp_n, *temp_sort, *swapper;
 	int len = dlistint_len(*list);
 
-	if ((*list)->next == NULL)
-		return;
 	if (len < 2)
 		return;
 	temp_n = *list;
 	if (len == 2)
 	{
 		temp_n = temp_n->next;
-		if (temp_n->n < (temp_n->prev)->n)
+		if (temp_n->n <= (temp_n->prev)->n)
 		{
 			swap(temp_n, temp_n->prev, list);
 			print_list(*list);
