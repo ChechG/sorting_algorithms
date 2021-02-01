@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp_n, *temp_sort, *swapper;
 	int len = dlistint_len(*list);
 
-	if (len < 2)
+	if (len < 2 || list == NULL || *list == NULL)
 		return;
 	temp_n = *list;
 	if (len == 2)
