@@ -61,6 +61,7 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 		temp_sort->prev = NULL;
 		temp_sort->next = swapper;
 		temp_sort->next->next = NULL;
+		swapper->prev = temp_sort;
 		*list = temp_sort;
 	}
 	else if (swapper->prev == NULL)
