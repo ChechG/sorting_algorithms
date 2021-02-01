@@ -6,48 +6,41 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	int n;
-	listint_t *cur, *ptr,*tmp;
-	cur = *list;
-	if (cur->next == NULL)
-		return;
-	cur = cur->next;
+	listint_t *temp_n, *temp_sort, *swapper;
+	int len = dlistint_len(*list);
 
-	while(cur != NULL)
+	if (len < 2)
+		return;
+	temp_n = *list;
+	if (len == 2)
 	{
-		n = 0;
-		ptr = cur;
-		tmp = cur->prev;
-		cur = cur->next;
-		while (tmp != NULL && tmp->n > ptr->n)
+		temp_n = temp_n->next;
+		if (temp_n->n < (temp_n->prev)->n)
 		{
-			n++;
-			tmp = tmp->prev;
+			swap(temp_n, temp_n->prev, list);
+			print_list(*list);
 		}
-		if (n)
+		return;
+	}
+	while (temp_n != NULL)
+	{
+		temp_sort = temp_n;
+		if (temp_sort->prev != NULL)
 		{
-			ptr->prev->next = ptr->next;
-			if (ptr->next != NULL)
-				ptr->next->prev = ptr->prev;
-			if (tmp == NULL)
+			while (temp_sort->n < (temp_sort->prev)->n && temp_sort->prev != NULL)
 			{
-				tmp = *list;
-				ptr->prev = NULL;
-				ptr->next = tmp;
-				ptr->next->prev = ptr;
-				*list = ptr;
-				print_list(*list);
-			}
-			else
-			{
-				tmp = tmp->next;
-				tmp->prev->next = ptr;
-				ptr->prev = tmp->prev;
-				tmp->prev = ptr;
-				ptr->next = tmp;
+				swapper = temp_sort->prev;
+				if (swapper->prev == NULL)
+				{
+					swap(temp_sort, swapper, list);
+					print_list(*list);
+					break;
+				}
+				swap(temp_sort, swapper, list);
 				print_list(*list);
 			}
 		}
+		temp_n = temp_n->next;
 	}
 }
 
