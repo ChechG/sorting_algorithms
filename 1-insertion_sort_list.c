@@ -27,7 +27,7 @@ void insertion_sort_list(listint_t **list)
 		temp_sort = temp_n;
 		if (temp_sort->prev != NULL)
 		{
-			while (temp_sort->n < (temp_sort->prev)->n && temp_sort != NULL)
+			while (temp_sort->n < (temp_sort->prev)->n)
 			{
 				swapper = temp_sort->prev;
 				if (swapper->prev == NULL)
