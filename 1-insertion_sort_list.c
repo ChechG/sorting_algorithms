@@ -7,21 +7,10 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp_n, *temp_sort, *swapper;
-	int len = dlistint_len(*list);
 
-	if (len < 2 || (*list)->next == NULL || *list == NULL)
+	if (!list || *list == NULL || (*list)->next == NULL)
 		return;
 	temp_n = *list;
-	if (len == 2)
-	{
-		temp_n = temp_n->next;
-		if (temp_n->n < (temp_n->prev)->n)
-		{
-			swap(temp_n, temp_n->prev, list);
-			print_list(*list);
-		}
-		return;
-	}
 	while (temp_n != NULL)
 	{
 		temp_sort = temp_n;
@@ -56,7 +45,7 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 	listint_t *aux_prev, *aux_next = temp_sort->next;
 
 	swapper = temp_sort->prev;
-	if (dlistint_len(*list) == 2)
+	if (temp_sort->next == NULL && swapper->prev == NULL)
 	{
 		temp_sort->prev = NULL;
 		temp_sort->next = swapper;
@@ -93,25 +82,4 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 		aux_next->prev = swapper;
 	}
 	return (list);
-}
-
-/**
- * dlistint_len - returns length of array
- * @list: doubly linked list
- * Return: size of list
- */
-size_t dlistint_len(const listint_t *list)
-{
-	int n = 0;
-
-	if (list->next == NULL)
-	{
-		return (0);
-	}
-	while (list != NULL)
-	{
-		n++;
-		list = list->next;
-	}
-	return (n);
 }
