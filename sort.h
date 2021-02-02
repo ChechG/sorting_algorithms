@@ -31,5 +31,6 @@ size_t dlistint_len(const listint_t *list);
 int partition(int *array, int lo, int hi, size_t size);
 void rec_quick_sort(int *array, int lo, int hi, size_t size);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 #endif
