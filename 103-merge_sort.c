@@ -88,7 +88,6 @@ void TopDownMerge(int array[], int ini, int mid, int end, int barray[])
  * CopyArray - sorts an array of integers in ascending order
  * @array: array to sort.
  * @ini: first index.
- * @mid: middle index.
  * @end: last index.
  * @barray: array to work on.
  */
