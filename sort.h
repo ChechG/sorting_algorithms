@@ -34,5 +34,9 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
+void TopDownMergeSort(int *array, int *barray, int n);
+void TopDownSplitMerge(int *barray, int ini, int end, int *array);
+void TopDownMerge(int *array, int ini, int mid, int end, int *barray);
+void CopyArray(int *array, int ini, int end, int *barray);
 
 #endif
