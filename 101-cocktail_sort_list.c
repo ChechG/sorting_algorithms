@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list -  sorts an array of integers in ascending order
+ * cocktail_sort_list - sorts an array of integers in ascending order
  * @list: doubly linked list
  */
 void cocktail_sort_list(listint_t **list)
