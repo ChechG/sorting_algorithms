@@ -20,8 +20,8 @@ void merge_sort(int *array, size_t size)
  */
 void TopDownMergeSort(int *array, int *barray, int n)
 {
-    CopyArray(array, 0, n, barray);
-    TopDownSplitMerge(barray, 0, n, array);
+	CopyArray(array, 0, n, barray);
+	TopDownSplitMerge(barray, 0, n, array);
 }
 
 /**
@@ -35,13 +35,13 @@ void TopDownSplitMerge(int *barray, int ini, int end, int *array)
 {
 	int mid, i;
 
-    if(end - ini <= 1)
-        return;
-    mid = (end + ini) / 2;
-    TopDownSplitMerge(array, ini, mid, barray);
-    TopDownSplitMerge(array, mid, end, barray);
+	if (end - ini <= 1)
+		return;
+	mid = (end + ini) / 2;
+	TopDownSplitMerge(array, ini, mid, barray);
+	TopDownSplitMerge(array, mid, end, barray);
 	printf("Merging...\n");
-    TopDownMerge(barray, ini, mid, end, array);
+	TopDownMerge(barray, ini, mid, end, array);
 	printf("[Done]: ");
 	for (i = ini; i < end; i++)
 	{
@@ -62,20 +62,21 @@ void TopDownSplitMerge(int *barray, int ini, int end, int *array)
  */
 void TopDownMerge(int *array, int ini, int mid, int end, int *barray)
 {
-    int i = ini, j = mid, k;
+	int i = ini, j = mid, k;
 
-    for (k = ini; k < end; k++) {
-        if (i < mid && (j >= end || array[i] <= array[j]))
+	for (k = ini; k < end; k++)
+	{
+		if (i < mid && (j >= end || array[i] <= array[j]))
 		{
-            barray[k] = array[i];
-            i = i + 1;
-        }
+			barray[k] = array[i];
+			i = i + 1;
+		}
 		else
 		{
-            barray[k] = array[j];
-            j = j + 1;
-        }
-    }
+			barray[k] = array[j];
+			j = j + 1;
+		}
+	}
 	printf("[left]: ");
 	for (i = ini; i < mid; i++)
 	{
@@ -105,6 +106,6 @@ void CopyArray(int *array, int ini, int end, int *barray)
 {
 	int k;
 
-    for(k = ini; k < end; k++)
-        barray[k] = array[k];
+	for (k = ini; k < end; k++)
+		barray[k] = array[k];
 }
