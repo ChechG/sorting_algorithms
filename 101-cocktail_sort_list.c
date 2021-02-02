@@ -6,41 +6,38 @@
  */
 void cocktail_sort_list(listint_t **list)
 {
-    listint_t *recorro, *temp;
-    
-    if (!list || *list == NULL)
+	listint_t *recorro, *temp;
+
+	if (!list || *list == NULL)
 		return;
-
-    if ((*list)->next == NULL)
+	if ((*list)->next == NULL)
 		return;
-
-    temp = *list;
-    while (temp->next != NULL)
-    {
-        recorro = *list;
-        while (recorro->next != NULL)
-        {
-            if (recorro->n > recorro->next->n)
-            {
-                swap(recorro->next, recorro, list);
-                print_list(*list);
-            }
-            else
-                recorro = recorro->next;
-        }
-        while (recorro->prev != NULL)
-        {
-            if (recorro->n < recorro->prev->n)
-            {
-                swap(recorro, recorro->prev, list);
-                print_list(*list);
-            }
-            else
-                recorro = recorro->prev;
-        }
-        temp = temp->next;
-    }
-
+	temp = *list;
+	while (temp != NULL)
+	{
+		recorro = *list;
+		while (recorro->next != NULL)
+		{
+			if (recorro->n > recorro->next->n)
+			{
+				swap(recorro->next, recorro, list);
+				print_list(*list);
+			}
+			else
+				recorro = recorro->next;
+		}
+		while (recorro->prev != NULL)
+		{
+			if (recorro->n < recorro->prev->n)
+			{
+				swap(recorro, recorro->prev, list);
+				print_list(*list);
+			}
+			else
+				recorro = recorro->prev;
+		}
+		temp = temp->next;
+	}
 }
 
 /**
