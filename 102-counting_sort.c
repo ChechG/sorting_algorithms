@@ -17,7 +17,7 @@ void counting_sort(int *array, size_t size)
 			max = array[i];
 	}
 	array_0 = malloc(sizeof(int) * max + 1);
-	array_1 = malloc(size);
+	array_1 = malloc(sizeof(int) * size);
 	for (k = 0; array[k] != '\0'; k++)
 	{
 		x = array[k];
@@ -43,4 +43,6 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 1; i <= (int)size; i++)
 		array[i - 1] = array_1[i];
+	free(array_0);
+	free(array_1);
 }
