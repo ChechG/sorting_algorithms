@@ -13,9 +13,10 @@ void cocktail_sort_list(listint_t **list)
 	if ((*list)->next == NULL)
 		return;
 	temp = *list;
+	recorro = *list;
 	while (temp != NULL)
 	{
-		recorro = *list;
+
 		while (recorro->next != NULL)
 		{
 			if (recorro->n > recorro->next->n)
