@@ -9,19 +9,9 @@ void merge_sort(int *array, size_t size)
 {
 	int *barray = malloc(sizeof(int) * size);
 
-	TopDownMergeSort(array, barray, (int)size);
-}
-
-/**
- * TopDownMergeSort - sorts an array of integers in ascending order
- * @array: array to sort.
- * @barray: array to work on.
- * @n: size of array.
- */
-void TopDownMergeSort(int *array, int *barray, int n)
-{
-	CopyArray(array, 0, n, barray);
-	TopDownSplitMerge(barray, 0, n, array);
+	CopyArray(array, 0, (int)size, barray);
+	TopDownSplitMerge(barray, 0, (int)size, array);
+	free(barray);
 }
 
 /**
@@ -31,7 +21,7 @@ void TopDownMergeSort(int *array, int *barray, int n)
  * @end: last index.
  * @array: array to work on.
  */
-void TopDownSplitMerge(int *barray, int ini, int end, int *array)
+void TopDownSplitMerge(int barray[], int ini, int end, int array[])
 {
 	int mid, i;
 
@@ -60,7 +50,7 @@ void TopDownSplitMerge(int *barray, int ini, int end, int *array)
  * @end: last index.
  * @barray: array to work on.
  */
-void TopDownMerge(int *array, int ini, int mid, int end, int *barray)
+void TopDownMerge(int array[], int ini, int mid, int end, int barray[])
 {
 	int i = ini, j = mid, k;
 
@@ -102,7 +92,7 @@ void TopDownMerge(int *array, int ini, int mid, int end, int *barray)
  * @end: last index.
  * @barray: array to work on.
  */
-void CopyArray(int *array, int ini, int end, int *barray)
+void CopyArray(int array[], int ini, int end, int barray[])
 {
 	int k;
 
