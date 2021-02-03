@@ -7,11 +7,12 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int *temp = malloc(sizeof(int) * size);
-	int i, k, l = 0, sorteado, div = 1, max_num, z = 0;
+	int *temp;
+	int i, k, l = 0, sorteado, div = 1, max_num, z;
 
 	if (size < 2)
 		return;
+	temp = malloc(sizeof(int) * size);
 	max_num = max_int(array, (int)size);
 	while (l < max_num)
 	{
