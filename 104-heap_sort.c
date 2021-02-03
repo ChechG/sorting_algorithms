@@ -66,7 +66,6 @@ void siftDown(int *array, int start, int end, int n)
 		}
 		else
 		{
-			print_array(array, n);
 			return;
 		}
 	}
