@@ -41,5 +41,7 @@ void CopyArray(int *array, int ini, int end, int *barray);
 void heap_sort(int *array, size_t size);
 void siftDown(int *array, int start, int end, int n);
 void heapify(int *array, int n);
+void radix_sort(int *array, size_t size);
+void switch1(int *original, int *cambio, int size);
 
 #endif
