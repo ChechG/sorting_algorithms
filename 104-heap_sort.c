@@ -17,8 +17,8 @@ void heap_sort(int *array, size_t size)
 		array[0] = array[end];
 		array[end] = temp;
 		end = end - 1;
-		siftDown(array, 0, end, n);
 		print_array(array, n);
+		siftDown(array, 0, end, n);
 	}
 }
 
@@ -49,6 +49,7 @@ void heapify(int *array, int n)
 void siftDown(int *array, int start, int end, int n)
 {
 	int root, child, temp = 0;
+	(void)n;
 
 	root = start;
 	while (root * 2 + 1 <= end)
@@ -65,8 +66,6 @@ void siftDown(int *array, int start, int end, int n)
 			print_array(array, n);
 		}
 		else
-		{
 			return;
-		}
 	}
 }
