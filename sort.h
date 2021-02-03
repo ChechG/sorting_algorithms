@@ -38,5 +38,8 @@ void TopDownMergeSort(int *array, int *barray, int n);
 void TopDownSplitMerge(int *barray, int ini, int end, int *array);
 void TopDownMerge(int *array, int ini, int mid, int end, int *barray);
 void CopyArray(int *array, int ini, int end, int *barray);
+void heap_sort(int *array, size_t size);
+void siftDown(int *array, int start, int end, int n);
+void heapify(int *array, int n);
 
 #endif
