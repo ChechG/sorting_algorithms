@@ -8,16 +8,11 @@
 void radix_sort(int *array, size_t size)
 {
 	int *temp = malloc(sizeof(int) * size);
-	int i, k, l = 0, sorteado, div = 1, max = 0, max_num = 1, z = 0;
+	int i, k, l = 0, sorteado, div = 1, max_num, z = 0;
 
-	for (i = 0; i < (int)size; i++)
-		if (array[i] > max)
-			max = array[i];
-	while (max / 10 > 0)
-	{
-		max_num++;
-		max = max / 10;
-	}
+	if (size < 2)
+		return;
+	max_num = max_int(array, (int)size);
 	while (l < max_num)
 	{
 		k = 0;
@@ -63,4 +58,25 @@ void switch1(int *original, int *cambio, int size)
 	{
 		original[i] = cambio[i];
 	}
+}
+
+/**
+ * max_int - original a cambio
+ * @array: array original.
+ * @n: size of array.
+ * Return: num of digits.
+ */
+int max_int(int *array, int n)
+{
+	int max = 0, max_num = 1, i;
+
+	for (i = 0; i < n; i++)
+		if (array[i] > max)
+			max = array[i];
+	while (max / 10 > 0)
+	{
+		max_num++;
+		max = max / 10;
+	}
+	return (max_num);
 }
